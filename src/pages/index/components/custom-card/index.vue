@@ -39,7 +39,7 @@ const hanldeCopyOrderNo = () => {
         <text class="text-green-500 font-medium">月结</text>
       </view>
     </view>
-    <view class="flex items-center justify-center py-2.5 gap-x-2.5">
+    <view class="flex items-center justify-center py-3 pb-0 gap-x-2.5">
       <view class="flex flex-col gap-y-1 px-2 py-1.5">
         <view class="flex items-end gap-x-0.5">
           <text class="text-sm font-medium">上海市</text>
