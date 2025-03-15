@@ -2,7 +2,7 @@
 	<view class="w-full h-screen flex flex-col items-center overflow-hidden">
 		<CustomNavbar title="订单列表" :back="false" background="#fff" />
 		<view class="w-full bg-white py-1 box-border pb-2">
-			<uni-search-bar :focus="true" v-model="searchValue" radius="100" @confirm="hanldeSearch"
+			<uni-search-bar :focus="true" v-model="searchValue" radius="100" @confirm="handleSearch"
 				placeholder="输入订单号、商品名称查找" clearButton="auto" cancelButton="none" />
 		</view>
 		<view class="flex-1 w-full overflow-hidden">
@@ -10,7 +10,7 @@
 				<uni-swipe-action ref="swipeAction">
 					<uni-swipe-action-item :right-options="actionOptions" class="bg-white mt-2.5"
 						v-for="(item, index) in orderList" @click="handleActionClickItem($event, item)" autoClose
-						@change="hanldeActionChange">
+						@change="handleActionChange">
 						<CustomCard :item="item" />
 					</uni-swipe-action-item>
 				</uni-swipe-action>
@@ -29,13 +29,11 @@ import { Control_TYPE } from "@/common/enum/system.enum"
 
 
 console.log("[md5Hash]", md5Hash('123456'));
+
+
 const swipeActionRef = ref()
 
-const searchValeue = ref('')
-
-const searchStyle = {
-	borderColor: '#e5e7eb'
-}
+const searchValue = ref('')
 
 const actionOptions = [{
 	text: Control_TYPE.DETAILS,
@@ -50,7 +48,7 @@ const actionOptions = [{
 }]
 
 
-const hanldeSearch = (v) => {
+const handleSearch = (v) => {
 	console.log(v, "search");
 }
 
@@ -80,7 +78,7 @@ const handleActionClickItem = (event, item) => {
 	}
 }
 
-const hanldeActionChange = (event) => {
+const handleActionChange = (event) => {
 	console.log("change", event);
 }
 

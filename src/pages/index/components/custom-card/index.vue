@@ -11,7 +11,7 @@ const copyText = ref("复制")
 const formattedNumber = (v) => (v).toFixed(2);
 
 
-const hanldeCopyOrderNo = (orderNo) => {
+const hanldeCopyOrderNo = (orderNo: string) => {
   uni.setClipboardData({
     data: orderNo,
     success: () => {
