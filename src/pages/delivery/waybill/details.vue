@@ -23,7 +23,7 @@ const handleClickItem = (event: { currentIndex: number }) => {
       <uni-segmented-control :current="active" :values="items" @clickItem="handleClickItem" styleType="text"
         activeColor="#5372F6" />
     </view>
-    <view class="w-full flex-1 h-full">
+    <view class="w-full flex-1 h-full bg-[#F5F6FA]">
       <component :is="componentMap[active]" />
     </view>
   </view>
