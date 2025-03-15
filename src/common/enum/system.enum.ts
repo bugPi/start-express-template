@@ -54,3 +54,9 @@ export enum POPUP {
   USER = 1,
   FACTORY = 2,
 }
+
+export enum Control_TYPE {
+  VIEW = "查看",
+  DELETE = "删除",
+  DETAILS = "详情",
+}

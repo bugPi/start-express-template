@@ -7,16 +7,15 @@
 		</view>
 		<view class="flex-1 w-full overflow-hidden">
 			<scroll-view class="w-full h-full flex flex-col items-center py-2 pb-0" :scroll-y="true">
-				<uni-swipe-action>
+				<uni-swipe-action ref="swipeAction">
 					<uni-swipe-action-item :right-options="actionOptions" class="bg-white mt-2.5"
-						v-for="(item, index) in orderList" @click="handleClickItem">
+						v-for="(item, index) in orderList" @click="handleActionClickItem($event, item)" autoClose
+						@change="hanldeActionChange">
 						<CustomCard :item="item" />
 					</uni-swipe-action-item>
 				</uni-swipe-action>
 			</scroll-view>
-
 		</view>
-
 		<CustomBottom />
 	</view>
 </template>
@@ -26,47 +25,69 @@ import { md5Hash } from '@/common/plugins/crypto';
 import { CustomBottom, CustomEmpty, CustomNavbar } from "@/components"
 import { CustomCard } from "./components"
 import { orderList } from "@/mock/index"
-
-
-console.log(orderList);
+import { Control_TYPE } from "@/common/enum/system.enum"
 
 
 console.log("[md5Hash]", md5Hash('123456'));
-
+const swipeActionRef = ref()
 
 const searchValeue = ref('')
+
 const searchStyle = {
 	borderColor: '#e5e7eb'
 }
 
 const actionOptions = [{
-	text: '详情',
+	text: Control_TYPE.DETAILS,
 	style: {
 		backgroundColor: '#007aff'
 	}
 }, {
-	text: '删除',
+	text: Control_TYPE.DELETE,
 	style: {
 		backgroundColor: '#dd524d'
 	}
 }]
 
 
-const handleClick = () => {
-	uni.navigateTo({
-		url: '/pages/delivery/waybill/details'
-	})
-}
-
 const hanldeSearch = (v) => {
 	console.log(v, "search");
-
 }
 
-const handleClickItem = (item) => {
-	console.log(item, "item");
+const handleActionClickItem = (event, item) => {
+	const { content } = event;
+	if (content.text === Control_TYPE.DETAILS) {
+		uni.navigateTo({
+			url: `/pages/delivery/waybill/details?id=${item.id}`,
+			success: () => {
+				console.log("[navigateTo]", item.id);
+				swipeActionRef.value.closeAll() // 关闭所有已经打开的组件
+			}
+		})
+	} else {
+		uni.showModal({
+			title: '提示',
+			content: '确定删除该订单吗？',
+			confirmColor: '#ea6b0e',
+			success: (res) => {
+				if (res.confirm) {
+					console.log('用户点击确定');
+				} else if (res.cancel) {
+					console.log('用户点击取消');
+				}
+			}
+		});
+	}
 }
 
+const hanldeActionChange = (event) => {
+	console.log("change", event);
+}
+
+
+onMounted(() => {
+	swipeActionRef.value && swipeActionRef.value.resize(); // 动态添加数据后，如不能正常滑动，需要主动调用此方法，微信小程序、h5、app-vue 不生效
+})
 </script>
 
 
