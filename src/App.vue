@@ -23,7 +23,7 @@ onHide(() => { });
 @use "./uni.scss";
 
 page {
-  background-color: #f7f7f7;
+  background-color: #F5F6FA;
   overflow-x: hidden;
 }
 

@@ -1,8 +1,4 @@
 <script setup lang="ts">
-
-
-
-
 const copyText = ref("复制")
 const active = ref(0);
 
