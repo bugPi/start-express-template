@@ -2,7 +2,7 @@
   <view class="w-full h-full flex flex-col flex-1 gap-y-2">
     <view
       class="flex flex-col items-center gap-y-2.5 max-h-[420px] h-[420px] mx-2 bg-white py-2 box-border mt-2.5 rounded-lg">
-      <uv-image src="https://img.picui.cn/free/2025/03/15/67d53bb549a6d.png" mode="widthFix" />
+      <uv-image src="https://img.picui.cn/free/2025/03/15/67d53bb549a6d.png" mode="widthFix" class="w-full h-full" />
     </view>
     <view class="px-2">
       <uv-list class="!rounded-lg">

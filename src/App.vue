@@ -69,4 +69,17 @@ page {
 .is-focused {
   border-color: $uni-color-primary !important;
 }
+
+.uni-modal {
+  border-radius: 12px;
+
+  .uni-modal__bd {
+    color: #333;
+    font-weight: 500;
+  }
+
+  .uni-modal__btn {
+    font-size: 14px;
+  }
+}
 </style>

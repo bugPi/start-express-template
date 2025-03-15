@@ -48,11 +48,11 @@ const actionOptions = [{
 }]
 
 
-const handleSearch = (v) => {
+const handleSearch = (v: string) => {
 	console.log(v, "search");
 }
 
-const handleActionClickItem = (event, item) => {
+const handleActionClickItem = (event: { content: { text: string } }, item: { id: string | number }) => {
 	const { content } = event;
 	if (content.text === Control_TYPE.DETAILS) {
 		uni.navigateTo({
@@ -64,8 +64,7 @@ const handleActionClickItem = (event, item) => {
 		})
 	} else {
 		uni.showModal({
-			title: '提示',
-			content: '确定删除该订单吗？',
+			content: '您确定要删除此订单？此操作不可撤销!',
 			confirmColor: '#ea6b0e',
 			success: (res) => {
 				if (res.confirm) {
@@ -78,8 +77,8 @@ const handleActionClickItem = (event, item) => {
 	}
 }
 
-const handleActionChange = (event) => {
-	console.log("change", event);
+const handleActionChange = (v: string) => {
+	console.log("change", v);
 }
 
 
