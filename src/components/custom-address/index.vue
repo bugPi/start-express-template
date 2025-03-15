@@ -1,6 +1,10 @@
-<template>
-  <view>
+<script setup lang="ts">
+import { CustomEmpty } from "@/components"
+</script>
 
-    地址信息录入
+<template>
+
+  <view class="h-[320px]">
+    <CustomEmpty />
   </view>
 </template>
