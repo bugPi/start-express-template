@@ -1,9 +1,9 @@
 <template>
 	<view class="w-full h-screen flex flex-col items-center">
 		<CustomNavbar title="订单列表" :back="false" background="#fff" />
-		<view class="w-full bg-white py-1 px-2.5 box-border pb-2">
-			<uni-easyinput prefixIcon="search" v-model="searchValeue" placeholder="输入订单号、商品名称查找" :style="searchStyle"
-				:clearable="false" trim="all" />
+		<view class="w-full bg-white py-1 box-border pb-2">
+			<uni-search-bar :focus="true" v-model="searchValue" radius="100" @confirm="hanldeSearch" @blur="hanldeSearch"
+				placeholder="输入订单号、商品名称查找" clearButton="auto" cancelButton="none" />
 		</view>
 		<scroll-view class="flex flex-col items-center justify-center h-full flex-1 py-2">
 			<uni-swipe-action>
@@ -47,6 +47,11 @@ const handleClick = () => {
 	uni.navigateTo({
 		url: '/pages/delivery/waybill/details'
 	})
+}
+
+const hanldeSearch = (v) => {
+	console.log(v, "search");
+
 }
 
 </script>
