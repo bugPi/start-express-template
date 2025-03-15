@@ -8,10 +8,11 @@ import { CustomAgreement, CustomNavbar, CustomAddress } from "@/components"
 // }
 
 const forms = ref({
-  remark: ''
+  orderRemarks: '', // 订单备注信息
+  paymentType: '', // 付款类型（如：月结、预付、到付等）
+  goodsAmount: null, // 货款金额（单位：元）
+  goodsQuantity: 0, // 货物数量（单位：件）
 })
-
-
 
 
 const customStyle = computed(() => {
@@ -31,6 +32,17 @@ const buttonOptions = [
   { text: "要爬楼" },
   { text: "带文件封" }
 ]
+
+const actions = [
+  "到付", "寄付", "月结"
+]
+const actionsIndex = ref(0)
+
+const handleOnSelect = (event: { detail: { value: number } }) => {
+  actionsIndex.value = event.detail.value
+  forms.value.paymentType = actions[actionsIndex.value]
+  console.log(forms.value.paymentType, "paymentType");
+}
 
 </script>
 
@@ -60,17 +72,22 @@ const buttonOptions = [
             <uv-list>
               <uv-list-item title="预估件数">
                 <template #footer>
-                  <uv-number-box integer :min="1" :max="100" />
+                  <uv-number-box integer :min="1" :max="100" v-model="forms.goodsQuantity" />
                 </template>
               </uv-list-item>
               <uv-list-item title="货款金额" :border="true">
                 <template #footer>
-                  <uv-number-box integer :min="1" :max="100" />
+                  <uv-input placeholder="请输入货款金额" v-model="forms.goodsAmount" border="bottom" />
                 </template>
               </uv-list-item>
               <uv-list-item title="付款方式" :border="true">
                 <template #footer>
-                  <uv-number-box integer :min="1" :max="100" />
+                  <picker @change="handleOnSelect" :value="actionsIndex" :range="actions">
+                    <view class="flex items-center gap-x-1 text-xs">
+                      <text>{{ actions[actionsIndex] }}</text>
+                      <uv-icon name="arrow-right" />
+                    </view>
+                  </picker>
                 </template>
               </uv-list-item>
             </uv-list>
@@ -80,7 +97,7 @@ const buttonOptions = [
           <view class="py-1">
             <text class="text-xs font-medium">备注</text>
           </view>
-          <uv-textarea placeholder="请输入备注信息" count :height="120" v-model="forms.remark" />
+          <uv-textarea placeholder="请输入备注信息" count :height="120" v-model="forms.orderRemarks" />
           <view class="flex flex-wrap gap-1 mt-2">
             <uv-button v-for="(button, index) in buttonOptions" :key="index" :text="button.text" :plain="true"
               :hairline="true" />

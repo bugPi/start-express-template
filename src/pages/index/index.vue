@@ -9,7 +9,7 @@
 			<scroll-view class="w-full h-full flex flex-col items-center py-2 pb-0" :scroll-y="true">
 				<uni-swipe-action ref="swipeAction">
 					<uni-swipe-action-item :right-options="actionOptions" class="bg-white mt-2.5"
-						v-for="(item, index) in orderList" @click="handleActionClickItem($event, item)" autoClose
+						v-for="(item, index) in orderList" @click="handleActionClickItem($event, item)" autoClose :key="index"
 						@change="handleActionChange">
 						<CustomCard :item="item" />
 					</uni-swipe-action-item>

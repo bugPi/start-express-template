@@ -32,7 +32,8 @@ page {
 //   background: $uni-color-primary !important;
 // }
 
-.uni-button-color {
+.uni-button-color,
+.uni-picker-action-confirm {
   color: $uni-color-primary !important;
 }
 
@@ -81,5 +82,10 @@ page {
   .uni-modal__btn {
     font-size: 14px;
   }
+}
+
+.uni-picker-custom {
+  border-radius: 14px 14px 0 0;
+  font-size: 14px;
 }
 </style>
