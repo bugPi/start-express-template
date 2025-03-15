@@ -5,9 +5,9 @@
 			<uni-easyinput prefixIcon="search" v-model="searchValeue" placeholder="输入订单号、商品名称查找" :style="searchStyle"
 				:clearable="false" trim="all" />
 		</view>
-		<scroll-view class="flex flex-col items-center justify-center h-full flex-1 py-2 bg-white">
+		<scroll-view class="flex flex-col items-center justify-center h-full flex-1 py-2">
 			<uni-swipe-action>
-				<uni-swipe-action-item :right-options="actionOptions">
+				<uni-swipe-action-item :right-options="actionOptions" class="bg-white">
 					<CustomCard />
 				</uni-swipe-action-item>
 			</uni-swipe-action>
@@ -31,12 +31,12 @@ const searchStyle = {
 }
 
 const actionOptions = [{
-	text: '取消',
+	text: '详情',
 	style: {
 		backgroundColor: '#007aff'
 	}
 }, {
-	text: '确认',
+	text: '删除',
 	style: {
 		backgroundColor: '#dd524d'
 	}
