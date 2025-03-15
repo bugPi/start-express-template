@@ -6,6 +6,16 @@ const handleClick = (path: string) => {
     url: path
   })
 }
+
+
+const customStyle = computed(() => {
+  return {
+    background: '#4E341B',
+    fontSize: '16px',
+    padding: '14px 12px',
+    color: "#F3E7B8"
+  }
+})
 </script>
 
 
@@ -13,10 +23,25 @@ const handleClick = (path: string) => {
   <view class="w-full h-screen flex flex-col items-center">
     <CustomNavbar title="客户下单" back />
     <view class="flex-1 w-full flex flex-col px-2">
-      <view class="flex flex-1 flex-col gap-y-2 justify-center items-center">
+      <!-- <view class="flex flex-1 flex-col gap-y-2 justify-center items-center">
         <text @click="handleClick('/pages/delivery/address/index')">地址薄</text>
         <text @click="handleClick('/pages/delivery/waybill/index')">收寄信息填写页/运单信息</text>
+      </view> -->
+
+      <view class="bg-[#DDDDDD] p-2 py-2.5 box-border rounded mt-1.5 flex items-center justify-between">
+        <view class="text-xs w-[80%]">
+          <text>会员卡：</text>
+          <text>8888888888888</text>
+        </view>
+        <uv-button text="绑定会员号" size="mini" shape="circle" :custom-style="customStyle" />
       </view>
+
+
+
+
+
+
+
     </view>
     <view class="mt-auto w-full flex-shrink-0">
       <CustomAgreement />
