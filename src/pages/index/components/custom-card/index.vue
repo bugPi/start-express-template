@@ -11,9 +11,9 @@ const copyText = ref("复制")
 const formattedNumber = (v) => (v).toFixed(2);
 
 
-const hanldeCopyOrderNo = () => {
+const hanldeCopyOrderNo = (orderNo) => {
   uni.setClipboardData({
-    data: "80000494873",
+    data: orderNo,
     success: () => {
       copyText.value = "已复制";
       setTimeout(() => {
@@ -23,6 +23,16 @@ const hanldeCopyOrderNo = () => {
   });
 }
 
+
+defineProps({
+  item: {
+    type: Object,
+    default: () => {
+      return {}
+    }
+  }
+})
+
 </script>
 
 <template>
@@ -31,37 +41,38 @@ const hanldeCopyOrderNo = () => {
       <view class="flex items-center gap-x-1">
         <view class="flex items-center gap-x-1 text-[#666666]">
           <text>订单号:</text>
-          <text>80000494873</text>
+          <text>{{ item.orderNo }}</text>
         </view>
-        <uv-button :text="copyText" :plain="true" size="mini" shape="circle" type="info" @click="hanldeCopyOrderNo" />
+        <uv-button :text="copyText" :plain="true" size="mini" shape="circle" type="info"
+          @click="hanldeCopyOrderNo(item.orderNo)" />
       </view>
       <view>
-        <text class="text-green-500 font-medium">月结</text>
+        <text class="text-green-500 font-medium">{{ item.paymentType || '预付' }}</text>
       </view>
     </view>
     <view class="flex items-center justify-center py-3 pb-0 gap-x-2.5">
-      <view class="flex flex-col gap-y-1 px-2 py-1.5">
+      <view class="flex flex-col gap-y-1 px-2 py-1.5 w-[40%] items-center">
         <view class="flex items-end gap-x-0.5">
-          <text class="text-sm font-medium">上海市</text>
-          <text class="text-[#666] text-xs">(浦东新区)</text>
+          <text class="text-sm font-medium">{{ item.shippingProvince }}</text>
+          <text class="text-[#666] text-xs">({{ item.shippingDistrict }})</text>
         </view>
         <view class="w-full text-center">
-          <text class="text-[#666] text-xs">张梦月</text>
+          <text class="text-[#666] text-xs">{{ item.shippingName }}</text>
         </view>
       </view>
 
-      <view class="px-3 flex flex-col gap-y-1 items-center">
+      <view class="px-3 flex flex-col gap-y-1 items-center w-[20%]">
         <TransferData theme="outline" size="24" fill="#ea6b0e" />
-        <text class="text-[#666] text-xs">配送中</text>
+        <text class="text-[#666] text-xs">{{ item.orderStatus }}</text>
       </view>
 
-      <view class="flex flex-col gap-y-1 px-2 py-1.5">
+      <view class="flex flex-col gap-y-1 px-2 py-1.5 w-[40%] items-center">
         <view class="flex items-end gap-x-0.5">
-          <text class="text-sm font-medium">重庆市</text>
-          <text class="text-[#666] text-xs">(沙坪坝)</text>
+          <text class="text-sm font-medium">{{ item.recipientProvince }}</text>
+          <text class="text-[#666] text-xs">({{ item.recipientDistrict }})</text>
         </view>
         <view class="w-full text-center">
-          <text class="text-[#666] text-xs">张梦月</text>
+          <text class="text-[#666] text-xs">{{ item.recipientName }}</text>
         </view>
       </view>
     </view>
@@ -70,20 +81,20 @@ const hanldeCopyOrderNo = () => {
       <view class="flex justify-between items-center">
         <view class="text-[#333] flex items-end gap-x-1.5">
           <text class="text-[#999]">运费(元):</text>
-          <text>{{ formattedNumber(20) }}</text>
+          <text>{{ formattedNumber(Number(item.shippingFee)) }}</text>
         </view>
         <view class="text-[#333] flex items-end gap-x-1.5">
           <text class="text-[#999]">货款金额(元):</text>
-          <text>{{ formattedNumber(8500) }}</text>
+          <text>{{ formattedNumber(Number(item.goodsAmount)) }}</text>
         </view>
         <view class="text-[#333] flex items-end gap-x-1.5">
           <text class="text-[#999]">件数(件):</text>
-          <text>{{ formattedNumber(25.5) }}</text>
+          <text>{{ item.goodsQuantity }}</text>
         </view>
       </view>
       <view class="text-[#333] flex items-end gap-x-1.5">
         <text class="text-[#999]">开单时间:</text>
-        <text class="text-[#333]">2023-03-03 10:02:02</text>
+        <text class="text-[#333]">{{ item.orderTime }}</text>
       </view>
     </view>
   </view>
