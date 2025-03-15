@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CustomPace } from "@/pages/delivery/waybill/components"
-
+import { CustomAddress } from "@/components"
 
 const copyText = ref("复制")
 const active = ref(0);
@@ -53,6 +53,9 @@ const hanldeCopyOrderNo = (orderNo: string) => {
         <uv-button :text="copyText" :plain="true" size="mini" shape="circle" type="info"
           @click="hanldeCopyOrderNo('80000494873')" />
       </view>
+    </view>
+    <view class="p-2 box-border py-2.5 bg-white">
+      <CustomAddress />
     </view>
     <CustomPace :steps="steps" />
   </view>

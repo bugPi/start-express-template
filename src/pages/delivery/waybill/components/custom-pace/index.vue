@@ -15,7 +15,7 @@ const { steps } = defineProps<{
   <view class="flex flex-col gap-y-2 px-2 py-2.5 bg-white">
     <view class="flex items-center gap-x-1 text-sm">
       <view class="w-[4px] bg-[#517CFF] h-[16px] rounded" />
-      <text>物流详情</text>
+      <text class="font-medium">物流详情</text>
     </view>
     <view class="w-full">
       <uv-steps current="0" dot direction="column" active-color="#517CFF">

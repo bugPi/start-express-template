@@ -5,6 +5,7 @@ import CustomLink from "./custom-link/index.vue";
 import CustomNavbar from "./custom-navbar/index.vue";
 import CustomPrivacy from "./custom-privacy/index.vue";
 import CustomAgreement from "./custom-agreement/index.vue";
+import CustomAddress from "./custom-address/index.vue";
 
 export {
   CustomBottom,
@@ -14,4 +15,5 @@ export {
   CustomNavbar,
   CustomPrivacy,
   CustomAgreement,
+  CustomAddress,
 };
