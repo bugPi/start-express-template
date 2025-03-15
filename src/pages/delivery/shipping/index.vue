@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { CustomAgreement, CustomNavbar, CustomAddress } from "@/components"
 
-// const handleClick = (path: string) => {
-//   uni.navigateTo({
-//     url: path
-//   })
-// }
-
+const modalRef = ref()
+const memberFormRef = ref()
+/**
+ * 下单
+ */
 const forms = ref({
   orderRemarks: '', // 订单备注信息
   paymentType: '', // 付款类型（如：月结、预付、到付等）
@@ -14,6 +13,31 @@ const forms = ref({
   goodsQuantity: 0, // 货物数量（单位：件）
 })
 
+/**
+ * 绑定会员号
+ */
+const memberForms = ref({
+  member_number: '',
+  member_password: ''
+})
+
+/**
+ * 绑定会员号校验规则
+ */
+const memberRules = {
+  'member_number': {
+    type: 'string',
+    required: true,
+    message: '必填项',
+    trigger: ['blur', 'change']
+  },
+  'member_password': {
+    type: 'string',
+    required: true,
+    message: '必填项',
+    trigger: ['blur', 'change']
+  },
+}
 
 const customStyle = computed(() => {
   return {
@@ -44,6 +68,28 @@ const handleOnSelect = (event: { detail: { value: number } }) => {
   console.log(forms.value.paymentType, "paymentType");
 }
 
+/**
+ * 绑定会员号
+ */
+const handleMember = () => {
+  modalRef.value.open()
+}
+
+const handleConfirm = () => {
+  console.log(memberFormRef.value, "respone");
+  memberFormRef.value.validate().then(() => {
+    uni.showToast({
+      icon: 'success',
+      title: '校验通过'
+    })
+  }).catch((errors: any) => {
+    console.log(errors);
+    uni.showToast({
+      icon: 'error',
+      title: '校验失败'
+    })
+  })
+}
 </script>
 
 
@@ -57,7 +103,7 @@ const handleOnSelect = (event: { detail: { value: number } }) => {
             <text>会员卡：</text>
             <text>8888888888888</text>
           </view>
-          <uv-button text="绑定会员号" size="mini" shape="circle" :custom-style="customStyle" />
+          <uv-button text="绑定会员号" size="mini" shape="circle" :custom-style="customStyle" @click="handleMember" />
         </view>
       </view>
     </view>
@@ -128,6 +174,24 @@ const handleOnSelect = (event: { detail: { value: number } }) => {
         </view>
       </view>
     </view>
+
+    <uv-modal ref="modalRef" @confirm="handleConfirm" :showCancelButton="true" :buttonReverse="true" confirmText="绑定">
+      <view class="flex flex-col items-start p-2 box-border w-full">
+        <view class="py-1">
+          <image src="@/static/cover.png" mode="heightFix" class="h-[32px]" />
+        </view>
+        <view class="w-full">
+          <uv-form labelPosition="left" :model="memberForms" :rules="memberRules" ref="memberFormRef" labelWidth="auto">
+            <uv-form-item label="会员账号" prop="member_number">
+              <uv-input border="bottom" v-model="memberForms.member_number" />
+            </uv-form-item>
+            <uv-form-item label="会员密码" prop="member_password">
+              <uv-input border="bottom" v-model="memberForms.member_password" />
+            </uv-form-item>
+          </uv-form>
+        </view>
+      </view>
+    </uv-modal>
   </view>
 </template>
 
@@ -141,5 +205,11 @@ $textarea: #f7f7f7;
   .uv-textarea__count {
     background-color: $textarea !important;
   }
+}
+
+:deep(.uv-modal__content) {
+  justify-content: flex-start;
+  padding: 10px;
+  padding-top: 10px !important;
 }
 </style>
