@@ -90,6 +90,17 @@ const handleConfirm = () => {
     })
   })
 }
+
+/**
+ * 点击地址薄回调
+ * @param key 0 寄送 1 收货
+ */
+const handleClickPath = (value: number) => {
+  uni.navigateTo({
+    url: `/pages/delivery/address/index?key=${value}`
+  })
+}
+
 </script>
 
 
@@ -111,7 +122,7 @@ const handleConfirm = () => {
     <view class="w-full flex flex-1  flex-col px-2 gap-y-2 overflow-y-auto">
       <view class="h-full flex flex-col gap-y-2 overflow-auto">
         <view class="p-2 box-border bg-white rounded">
-          <CustomAddress />
+          <CustomAddress @onClick="handleClickPath" />
         </view>
         <view class="p-2 box-border bg-white rounded">
           <view class="py-1">
