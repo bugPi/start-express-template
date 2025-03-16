@@ -43,11 +43,11 @@ defineProps({
         </view>
         <view class="flex flex-col gap-y-1">
           <template v-if="type === ControlEnum.CREATE">
-            <view class="text-base font-medium" @click="handleSenderClick(0)">寄送人信息</view>
+            <view class="text-sm font-medium" @click="handleSenderClick(0)">寄送人信息</view>
             <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
           </template>
           <template v-else>
-            <view class="text-base font-medium">{{ initValues.shippingName }}</view>
+            <view class="text-sm font-medium">{{ initValues.shippingName }}</view>
             <view class="text-xs text-[#999999]">{{ initValues.shippingAddress }}</view>
           </template>
         </view>
@@ -61,16 +61,16 @@ defineProps({
     </view>
     <view class="flex items-center justify-between">
       <view class="flex items-start gap-x-1.5">
-        <view class="w-6 h-6 bg-red-500 flex items-center justify-center text-white  rounded-full">
+        <view class="w-6 h-6 bg-red-500 flex items-center justify-center text-white rounded-full">
           <text class="text-xs">收</text>
         </view>
         <view class="flex flex-col gap-y-1">
           <template v-if="type === ControlEnum.CREATE">
-            <view class="text-base font-medium" @click="handleSenderClick(1)">收件人信息</view>
+            <view class="text-sm font-medium" @click="handleSenderClick(1)">收件人信息</view>
             <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
           </template>
           <template v-else>
-            <view class="text-base font-medium">{{ initValues.recipientName }}</view>
+            <view class="text-sm font-medium">{{ initValues.recipientName }}</view>
             <view class="text-xs text-[#999999]">{{ initValues.recipientAddress }}</view>
           </template>
         </view>
