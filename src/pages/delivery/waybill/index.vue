@@ -39,13 +39,7 @@ onLoad((options?: { key?: string }) => {
           </view>
         </view>
       </view>
-
-      <view class="flex flex-col gap-y-2 mt-2">
-
-      </view>
     </view>
-
-
 
     <view class="mt-auto w-full flex-shrink-0 py-3 bg-[#fff] px-2 shadow-[0_-2px_12px_0_rgba(0,0,0,0.1)]">
       <button class="text-white rounded-full w-[50%]" style="background-color: #EA6B0E;">
