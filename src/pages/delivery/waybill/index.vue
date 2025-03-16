@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CustomNavbar } from "@/components"
+import { CustomNavbar, CustomForm } from "@/components"
 import { maskPhoneNumber } from "@/common/utils/index.utils"
 import { historicalAddress } from "@/mock/index"
 
@@ -21,6 +21,10 @@ onLoad((options?: { key?: string }) => {
 
 const handleClickItem = (item: Record<string, string | number>) => {
   console.log(item);
+}
+
+const handleOnFinish = (values: Record<string, string>) => {
+  console.log(values);
 }
 </script>
 
@@ -47,9 +51,7 @@ const handleClickItem = (item: Record<string, string | number>) => {
           </view>
         </view>
 
-        <view class="h-[320px] flex items-center justify-center">
-          表单
-        </view>
+        <CustomForm @onFinish="handleOnFinish" />
       </view>
 
       <view class="px-2 bg-white py-1 flex flex-col">

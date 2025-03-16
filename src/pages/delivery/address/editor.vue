@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { CustomNavbar } from "@/components"
+import { CustomNavbar, CustomForm } from "@/components"
+const handleOnFinish = (values: Record<string, string>) => {
+  console.log(values);
+}
 </script>
-
 
 <template>
   <view class="w-full h-screen flex flex-col">
@@ -20,6 +22,7 @@ import { CustomNavbar } from "@/components"
             </view>
           </view>
         </view>
+        <CustomForm @onFinish="handleOnFinish" />
       </view>
     </view>
     <view class="mt-auto w-full flex-shrink-0 py-3 bg-[#fff] px-2 shadow-[0_-2px_12px_0_rgba(0,0,0,0.1)]">

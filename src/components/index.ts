@@ -6,6 +6,7 @@ import CustomNavbar from "./custom-navbar/index.vue";
 import CustomPrivacy from "./custom-privacy/index.vue";
 import CustomAgreement from "./custom-agreement/index.vue";
 import CustomAddress from "./custom-address/index.vue";
+import CustomForm from "./custom-form/index.vue";
 
 export {
   CustomBottom,
@@ -16,4 +17,5 @@ export {
   CustomPrivacy,
   CustomAgreement,
   CustomAddress,
+  CustomForm,
 };
