@@ -1,3 +1,12 @@
+<script setup lang="ts">
+defineProps({
+  initValues: {
+    type: Object,
+    default: () => { }
+  }
+})
+</script>
+
 <template>
   <view class="w-full h-full flex flex-col flex-1 gap-y-2">
     <view

@@ -21,8 +21,6 @@ const handleSenderClick = () => {
 }
 
 
-
-
 defineProps({
   type: {
     type: Number,
@@ -38,18 +36,23 @@ defineProps({
 
 <template>
   <view class="py-2 box-border">
-    {{ initValues }}
     <view class="flex items-center justify-between">
       <view class="flex items-start gap-x-1.5 w-[80%]">
         <view class="w-6 h-6 bg-blue-500 flex items-center justify-center text-white  rounded-full">
           <text class="text-xs">寄</text>
         </view>
         <view class="flex flex-col gap-y-1">
-          <view class="text-base font-medium" @click="handleSenderClick">寄送人信息</view>
-          <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
+          <template v-if="type === ControlEnum.CREATE">
+            <view class="text-base font-medium" @click="handleSenderClick">寄送人信息</view>
+            <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
+          </template>
+          <template v-else>
+            <view class="text-base font-medium">{{ initValues.shippingName }}</view>
+            <view class="text-xs text-[#999999]">{{ initValues.shippingAddress }}</view>
+          </template>
         </view>
       </view>
-      <view class="w-[20%] text-center">
+      <view class="w-[20%] text-center" v-if="type === ControlEnum.CREATE">
         <text class="text-xs" @click="handleClick(0)">地址薄</text>
       </view>
     </view>
@@ -62,11 +65,17 @@ defineProps({
           <text class="text-xs">收</text>
         </view>
         <view class="flex flex-col gap-y-1">
-          <view class="text-base font-medium" @click="handleSenderClick">收件人信息</view>
-          <view class="text-xs text-[#999999]">复制完整信息，自动智能识别</view>
+          <template v-if="type === ControlEnum.CREATE">
+            <view class="text-base font-medium">收件人信息</view>
+            <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
+          </template>
+          <template v-else>
+            <view class="text-base font-medium">{{ initValues.recipientName }}</view>
+            <view class="text-xs text-[#999999]">{{ initValues.recipientAddress }}</view>
+          </template>
         </view>
       </view>
-      <view class="w-[20%] text-center">
+      <view class="w-[20%] text-center" v-if="type === ControlEnum.CREATE">
         <text class="text-xs" @click="handleClick(1)">地址薄</text>
       </view>
     </view>

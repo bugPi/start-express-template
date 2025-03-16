@@ -17,6 +17,13 @@ export const orderList = [
     shippingFee: "20.00", // 运费（单位：元）
     goodsAmount: "8500.00", // 货款金额（单位：元）
     goodsQuantity: 125, // 货物数量（单位：件）
+    pickupFee: "0.00", // 提货费（元）
+    deliveryFee: "0.00", // 送货费（元）
+    packagingFee: "0.00", // 包装费（元）
+    insuranceFee: "0.00", // 保价费（元）
+    otherFee: "0.00", // 其它费用（元）
+    transferFee: "0.00", // 中转费（元）
+    remarks: "无", // 备注信息
 
     orderTime: "2023-03-03 10:00:02", // 订单创建时间
     orderRemarks: "无", // 订单备注信息
@@ -45,6 +52,13 @@ export const orderList = [
     shippingFee: "18.00",
     goodsAmount: "4500.00",
     goodsQuantity: 75,
+    pickupFee: "0.00",
+    deliveryFee: "0.00",
+    packagingFee: "0.00",
+    insuranceFee: "0.00",
+    otherFee: "0.00",
+    transferFee: "0.00",
+    remarks: "无",
     orderTime: "2023-04-10 14:25:30",
     orderRemarks: "尽快发货",
     recipientName: "赵六",
@@ -70,6 +84,13 @@ export const orderList = [
     shippingFee: "25.00",
     goodsAmount: "7800.00",
     goodsQuantity: 110,
+    pickupFee: "0.00",
+    deliveryFee: "0.00",
+    packagingFee: "0.00",
+    insuranceFee: "0.00",
+    otherFee: "0.00",
+    transferFee: "0.00",
+    remarks: "无",
     orderTime: "2023-05-12 09:15:45",
     orderRemarks: "保持联系",
     recipientName: "陈七",
@@ -95,6 +116,13 @@ export const orderList = [
     shippingFee: "22.50",
     goodsAmount: "6200.00",
     goodsQuantity: 90,
+    pickupFee: "0.00",
+    deliveryFee: "0.00",
+    packagingFee: "0.00",
+    insuranceFee: "0.00",
+    otherFee: "0.00",
+    transferFee: "0.00",
+    remarks: "无",
     orderTime: "2023-06-20 16:40:20",
     orderRemarks: "小心轻放",
     recipientName: "孙九",
@@ -120,6 +148,13 @@ export const orderList = [
     shippingFee: "19.80",
     goodsAmount: "5000.00",
     goodsQuantity: 70,
+    pickupFee: "0.00",
+    deliveryFee: "0.00",
+    packagingFee: "0.00",
+    insuranceFee: "0.00",
+    otherFee: "0.00",
+    transferFee: "0.00",
+    remarks: "无",
     orderTime: "2023-07-05 11:55:10",
     orderRemarks: "验货后签收",
     recipientName: "周十一",
@@ -145,6 +180,13 @@ export const orderList = [
     shippingFee: "17.50",
     goodsAmount: "9200.00",
     goodsQuantity: 140,
+    pickupFee: "0.00",
+    deliveryFee: "0.00",
+    packagingFee: "0.00",
+    insuranceFee: "0.00",
+    otherFee: "0.00",
+    transferFee: "0.00",
+    remarks: "无",
     orderTime: "2023-08-18 13:20:05",
     orderRemarks: "当天发货",
     recipientName: "郑十三",
@@ -170,6 +212,13 @@ export const orderList = [
     shippingFee: "20.00",
     goodsAmount: "7300.00",
     goodsQuantity: 105,
+    pickupFee: "0.00",
+    deliveryFee: "0.00",
+    packagingFee: "0.00",
+    insuranceFee: "0.00",
+    otherFee: "0.00",
+    transferFee: "0.00",
+    remarks: "无",
     orderTime: "2023-09-25 08:45:50",
     orderRemarks: "请勿折叠",
     recipientName: "何十五",

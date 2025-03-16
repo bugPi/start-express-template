@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { CustomPace, CustomDetails } from "@/pages/delivery/waybill/components"
 import { CustomAddress } from "@/components"
+import { ControlEnum } from "@/common/enum/system.enum"
+
+const { initValues } = defineProps({
+  initValues: {
+    type: Object,
+    default: () => { }
+  }
+})
 
 const copyText = ref("复制")
 const active = ref(0);
@@ -48,16 +56,16 @@ const hanldeCopyOrderNo = (orderNo: string) => {
       <view class="flex items-center gap-x-1 w-[80%]">
         <view class="flex items-center gap-x-1 text-white text-xs px-2">
           <text>运单编号:</text>
-          <text>{{ 80000494873 }}</text>
+          <text>{{ initValues.orderNo }}</text>
         </view>
         <uv-button :text="copyText" :plain="true" size="mini" shape="circle" type="info"
-          @click="hanldeCopyOrderNo('80000494873')" />
+          @click="hanldeCopyOrderNo(initValues.orderNo)" />
       </view>
     </view>
     <view class="p-2 box-border py-2.5 bg-white">
-      <CustomAddress />
+      <CustomAddress :type="ControlEnum.UPDATE" :initValues="initValues" />
       <uv-divider />
-      <CustomDetails />
+      <CustomDetails :initValues="initValues" />
     </view>
     <CustomPace :steps="steps" />
   </view>

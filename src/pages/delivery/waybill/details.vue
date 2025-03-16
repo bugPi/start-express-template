@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CustomNavbar } from "@/components"
 import { CustomLeaflet, CustomOrder } from "./components"
+import { orderList } from "@/mock/index"
 
 const items = ['订单详情', '签收底单',]
 const active = ref<0 | 1>(0)
@@ -24,7 +25,7 @@ const handleClickItem = (event: { currentIndex: number }) => {
         activeColor="#5372F6" />
     </view>
     <view class="w-full flex-1 h-full bg-[#F5F6FA]">
-      <component :is="componentMap[active]" />
+      <component :is="componentMap[active]" :initValues="orderList[0]" />
     </view>
   </view>
 </template>
