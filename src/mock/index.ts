@@ -521,3 +521,24 @@ export const addressBook = [
     isDefault: false,
   },
 ];
+
+export const historicalAddress = [
+  {
+    id: 1,
+    name: "王小狗",
+    phone: "13654083196",
+    address: "上海市上海市浦东新区 1 号楼",
+  },
+  {
+    id: 2,
+    name: "王小狗",
+    phone: "13986105335",
+    address: "江苏省无锡市天河区 3 号楼",
+  },
+  {
+    id: 3,
+    name: "王小狗",
+    phone: "13654083196",
+    address: "广东省广州市浦东新区 12 号楼",
+  },
+];
