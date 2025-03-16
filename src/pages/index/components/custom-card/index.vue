@@ -56,7 +56,12 @@ defineProps({
       </view>
 
       <view class="px-3 flex flex-col gap-y-1 items-center w-[20%]">
-        <TransferData theme="outline" size="24" fill="#ea6b0e" />
+        <!-- <TransferData theme="outline" size="24" fill="#ea6b0e" /> -->
+        <svg t="1742105309212" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          p-id="5340" width="24" height="24">
+          <path d="M900.096 582.144H128v-42.496h669.696l-149.504-149.504 29.696-29.696 179.2 179.2 43.008 42.496z"
+            fill="#444444" p-id="5341"></path>
+        </svg>
         <text class="text-[#666] text-xs">{{ item.orderStatus }}</text>
       </view>
 
