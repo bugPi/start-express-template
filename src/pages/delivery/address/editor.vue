@@ -22,7 +22,7 @@ const handleOnFinish = (values: Record<string, string>) => {
             </view>
           </view>
         </view>
-        <CustomForm @onFinish="handleOnFinish" />
+        <CustomForm @onFinish="handleOnFinish" :isSave="false" />
       </view>
     </view>
     <view class="mt-auto w-full flex-shrink-0 py-3 bg-[#fff] px-2 shadow-[0_-2px_12px_0_rgba(0,0,0,0.1)]">

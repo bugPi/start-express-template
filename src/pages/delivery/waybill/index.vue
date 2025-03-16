@@ -51,7 +51,7 @@ const handleOnFinish = (values: Record<string, string>) => {
           </view>
         </view>
 
-        <CustomForm @onFinish="handleOnFinish" />
+        <CustomForm @onFinish="handleOnFinish" :type="type" />
       </view>
 
       <view class="px-2 bg-white py-1 flex flex-col">

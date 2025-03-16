@@ -15,6 +15,14 @@ defineProps({
   initValues: {
     type: Object,
     default: () => { }
+  },
+  isSave: {
+    type: Boolean, // 是否保存到通讯录
+    default: true
+  },
+  type: {
+    type: Boolean, // true 寄件人 false 收件人
+    default: true
   }
 })
 const handleFinish = () => {
@@ -41,7 +49,7 @@ defineExpose({
     <uv-form :model="formValues" ref="formRef">
       <view class="flex items-center gap-x-1.5 w-full" style="border-bottom:1px solid #eee;">
         <uv-form-item prop="name" class="w-[30%]">
-          <uv-input v-model="formValues.name" placeholder="寄件人" border="none" />
+          <uv-input v-model="formValues.name" :placeholder="type ? '寄件人' : '收件人'" border="none" />
         </uv-form-item>
         <uv-line direction="col" style="height: 24px;" />
         <uv-form-item prop="phone">
@@ -56,7 +64,7 @@ defineExpose({
       </uv-form-item>
     </uv-form>
     <view class="my-2.5 flex items-end justify-between">
-      <uv-checkbox-group v-model="isDefault" shape="circle" size="14" labelSize="12">
+      <uv-checkbox-group v-model="isDefault" shape="circle" size="14" labelSize="12" v-if="isSave">
         <uv-checkbox :customStyle="{ marginBottom: '8px' }" label="保存到地址薄" :name="formValues.isDefault.toString()" />
       </uv-checkbox-group>
       <uv-text text="清空当前信息" @click="handlerClear" size="12" align="right" />
