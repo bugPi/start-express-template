@@ -118,9 +118,9 @@ const handleClickAddress = () => {
     <view class="w-full flex flex-col">
       <CustomNavbar title="客户下单" back />
       <view class="w-full flex flex-col px-2 gap-y-2 my-1.5">
-        <view class="bg-[#DDDDDD] p-2 py-2.5 box-border rounded flex items-center justify-between">
+        <view class="bg-[#F2F2F2] p-2 py-2.5 box-border rounded flex items-center justify-between">
           <view class="text-xs w-[80%]">
-            <text>会员卡：</text>
+            <text class="text-[#999]">会员号：</text>
             <text>8888888888888</text>
           </view>
           <uv-button text="绑定会员号" size="mini" shape="circle" :custom-style="customStyle" @click="handleMember" />

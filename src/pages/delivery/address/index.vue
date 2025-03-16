@@ -14,6 +14,9 @@ const handleOnDelete = (row: Object) => {
 
 const handleOnEdit = (row: Object) => {
   console.log(row, "edit");
+  uni.navigateTo({
+    url: '/pages/delivery/address/editor'
+  })
 }
 
 </script>
