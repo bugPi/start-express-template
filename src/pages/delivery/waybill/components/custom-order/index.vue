@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CustomPace } from "@/pages/delivery/waybill/components"
+import { CustomPace, CustomDetails } from "@/pages/delivery/waybill/components"
 import { CustomAddress } from "@/components"
 
 const copyText = ref("复制")
@@ -56,6 +56,8 @@ const hanldeCopyOrderNo = (orderNo: string) => {
     </view>
     <view class="p-2 box-border py-2.5 bg-white">
       <CustomAddress />
+      <uv-divider />
+      <CustomDetails />
     </view>
     <CustomPace :steps="steps" />
   </view>

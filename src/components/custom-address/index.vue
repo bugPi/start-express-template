@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { CustomEmpty } from "@/components"
+import { ControlEnum } from "@/common/enum/system.enum"
 
-const emit = defineEmits(["onClick"])
+const emit = defineEmits(["onClick", 'onFinish'])
 
 /**
  * 点击地址薄
@@ -11,10 +12,22 @@ const handleClick = (key: number) => {
   emit("onClick", key)
 }
 
+defineProps({
+  type: {
+    type: Number,
+    values: [ControlEnum.CREATE, ControlEnum.UPDATE],
+    default: ControlEnum.CREATE
+  },
+  initValues: {
+    type: Object,
+    default: () => { }
+  }
+})
 </script>
 
 <template>
   <view class="py-2 box-border">
+    {{ initValues }}
     <view class="flex items-center justify-between">
       <view class="flex items-start gap-x-1.5 w-[80%]">
         <view class="w-6 h-6 bg-blue-500 flex items-center justify-center text-white  rounded-full">
@@ -29,7 +42,9 @@ const handleClick = (key: number) => {
         <text class="text-xs" @click="handleClick(0)">地址薄</text>
       </view>
     </view>
-    <uv-divider />
+    <view class="w-[92%] ml-auto">
+      <uv-divider />
+    </view>
     <view class="flex items-center justify-between">
       <view class="flex items-start gap-x-1.5">
         <view class="w-6 h-6 bg-red-500 flex items-center justify-center text-white  rounded-full">

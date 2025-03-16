@@ -8,3 +8,10 @@ export const maskPhoneNumber = (phoneNumber: string): string => {
   if (!phoneRegex.test(phoneNumber)) return "";
   return `${phoneNumber.slice(0, 3)}****${phoneNumber.slice(7)}`;
 };
+
+/**
+ * 格式化数字 小数点后两位
+ * @param v
+ * @returns
+ */
+export const formattedNumber = (v: number) => v.toFixed(2);

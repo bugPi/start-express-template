@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import { TransferData } from "@icon-park/vue-next"
+import { formattedNumber } from "@/common/utils/index.utils"
+
 
 const copyText = ref("复制")
-
-/**
- * 格式化数字 小数点后两位
- * @param v
- * @returns
- */
-const formattedNumber = (v) => (v).toFixed(2);
-
 
 const hanldeCopyOrderNo = (orderNo: string) => {
   uni.setClipboardData({
@@ -93,7 +87,7 @@ defineProps({
         </view>
       </view>
       <view class="text-[#333] flex items-end gap-x-1.5">
-        <text class="text-[#999]">开单时间:</text>
+        <text class="text-[#999]">下单时间:</text>
         <text class="text-[#333]">{{ item.orderTime }}</text>
       </view>
     </view>
