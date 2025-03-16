@@ -8,16 +8,16 @@ const emit = defineEmits(["onClick", 'onAddress'])
  * 点击地址薄
  * @param key 0 寄送 1 收货
  */
-const handleClick = (key: number) => {
-  emit("onClick", key)
+const handleClick = () => {
+  emit("onAddress")
 }
 
 /**
  * 点击点击寄送人
  * @param key 0 寄送 1 收货
  */
-const handleSenderClick = () => {
-  emit("onAddress")
+const handleSenderClick = (key: number) => {
+  emit("onClick", key)
 }
 
 
@@ -43,7 +43,7 @@ defineProps({
         </view>
         <view class="flex flex-col gap-y-1">
           <template v-if="type === ControlEnum.CREATE">
-            <view class="text-base font-medium" @click="handleSenderClick">寄送人信息</view>
+            <view class="text-base font-medium" @click="handleSenderClick(0)">寄送人信息</view>
             <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
           </template>
           <template v-else>
@@ -53,7 +53,7 @@ defineProps({
         </view>
       </view>
       <view class="w-[20%] text-center" v-if="type === ControlEnum.CREATE">
-        <text class="text-xs" @click="handleClick(0)">地址薄</text>
+        <text class="text-xs" @click="handleClick">地址薄</text>
       </view>
     </view>
     <view class="w-[92%] ml-auto">
@@ -66,7 +66,7 @@ defineProps({
         </view>
         <view class="flex flex-col gap-y-1">
           <template v-if="type === ControlEnum.CREATE">
-            <view class="text-base font-medium">收件人信息</view>
+            <view class="text-base font-medium" @click="handleSenderClick(1)">收件人信息</view>
             <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
           </template>
           <template v-else>
@@ -76,7 +76,7 @@ defineProps({
         </view>
       </view>
       <view class="w-[20%] text-center" v-if="type === ControlEnum.CREATE">
-        <text class="text-xs" @click="handleClick(1)">地址薄</text>
+        <text class="text-xs" @click="handleClick">地址薄</text>
       </view>
     </view>
   </view>
