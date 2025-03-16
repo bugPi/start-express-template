@@ -97,7 +97,16 @@ const handleConfirm = () => {
  */
 const handleClickPath = (value: number) => {
   uni.navigateTo({
-    url: `/pages/delivery/address/index?key=${value}`
+    url: `/pages/delivery/waybill/index?key=${value}`
+  })
+}
+
+/**
+ * 地址薄列表
+ */
+const handleClickAddress = () => {
+  uni.navigateTo({
+    url: `/pages/delivery/address/index`
   })
 }
 
@@ -122,7 +131,7 @@ const handleClickPath = (value: number) => {
     <view class="w-full flex flex-1  flex-col px-2 gap-y-2 overflow-y-auto">
       <view class="h-full flex flex-col gap-y-2 overflow-auto">
         <view class="p-2 box-border bg-white rounded">
-          <CustomAddress @onClick="handleClickPath" />
+          <CustomAddress @onClick="handleClickPath" @onAddress="handleClickAddress" />
         </view>
         <view class="p-2 box-border bg-white rounded">
           <view class="py-1">

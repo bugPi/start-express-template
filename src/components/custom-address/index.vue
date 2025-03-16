@@ -2,7 +2,7 @@
 import { CustomEmpty } from "@/components"
 import { ControlEnum } from "@/common/enum/system.enum"
 
-const emit = defineEmits(["onClick", 'onFinish'])
+const emit = defineEmits(["onClick", 'onAddress'])
 
 /**
  * 点击地址薄
@@ -11,6 +11,17 @@ const emit = defineEmits(["onClick", 'onFinish'])
 const handleClick = (key: number) => {
   emit("onClick", key)
 }
+
+/**
+ * 点击点击寄送人
+ * @param key 0 寄送 1 收货
+ */
+const handleSenderClick = () => {
+  emit("onAddress")
+}
+
+
+
 
 defineProps({
   type: {
@@ -34,7 +45,7 @@ defineProps({
           <text class="text-xs">寄</text>
         </view>
         <view class="flex flex-col gap-y-1">
-          <view class="text-base font-medium">寄送人信息</view>
+          <view class="text-base font-medium" @click="handleSenderClick">寄送人信息</view>
           <view class="text-xs text-[#999999]">请输入真实姓名与地址</view>
         </view>
       </view>
@@ -51,7 +62,7 @@ defineProps({
           <text class="text-xs">收</text>
         </view>
         <view class="flex flex-col gap-y-1">
-          <view class="text-base font-medium">寄送人信息</view>
+          <view class="text-base font-medium" @click="handleSenderClick">收件人信息</view>
           <view class="text-xs text-[#999999]">复制完整信息，自动智能识别</view>
         </view>
       </view>
