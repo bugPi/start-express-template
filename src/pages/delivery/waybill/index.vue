@@ -22,7 +22,7 @@ onLoad((options?: { key?: string }) => {
 <template>
   <view class="w-full h-screen flex flex-col">
     <CustomNavbar :title="title" />
-    <view class="flex-1 flex flex-col px-2 bg-white">
+    <view class="flex flex-col px-2 bg-white pb-2">
       <view class="bg-white py-1 flex items-center gap-x-1.5">
         <view class="w-6 h-6 flex items-center justify-center text-white rounded-full"
           :class="type ? 'bg-blue-500' : 'bg-red-500'">
